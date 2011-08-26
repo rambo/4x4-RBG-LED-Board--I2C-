@@ -16,4 +16,4 @@
   - 4 x [CAY16 150Ohm resistor array](http://fi.rsdelivers.com/product/bourns/cay16-151j4/cay16-convex-chip-resistor-array-150r/2419614.aspx) 
   - 1 x [CAY16 100kOhm resistor array](http://fi.rsdelivers.com/product/bourns/cay16-104j4lf/4-array-convex-0603-lf-resistor-100k/5225591.aspx) 
 
-
+Estimated price (in expensive Finland) is ~30EUR each when making 20-30 pieces (highly depending on what making the multilayer PCBs actually would cost, no RFPs sent out yet), one could also switch to cheaper leds but the Osram ones are *very* good (and very bright). If making 4-layer boards in small amounts turns out to be horridly expensive it probably would be possible to make two 2-layer ones designed to stack like shield on Arduino (one with the leds, other with the controllers). Decent quality 2-layers boards can be gotten dirt cheap from iTead in china.
