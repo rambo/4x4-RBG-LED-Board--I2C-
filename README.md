@@ -2,7 +2,7 @@
 
 16 Osram MultiLEDs Controlled via I2C using 3 PCA9635PW drivers.
 
-5-bit board address set via DIP-switch.
+5-bit board address set via DIP-switch, 31 boards in a chain (or 27 if you want to avoid two address-spaces that are "reserved", check the i2c_addresses_test.php for details)
 
 4-layer board so you need proper Eagle license to view, sorry...
 

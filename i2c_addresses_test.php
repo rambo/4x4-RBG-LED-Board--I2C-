@@ -38,8 +38,9 @@ sort($warn);
  * XX = (10=R, 01=G, 11=B)
  * YYYY = Binary Coded Decimal (using BCH will yield us a bunch more addresses
  */
-echo "Scheme XX0YYYY where: XX = (10=R, 01=G, 11=B) YYYY = BCD\n";
-$usable = 0;
+echo "Scheme XXYYYYY where: XX = (10=R, 01=G, 11=B) YYYYY = Board address\n";
+$usable_single = 0;
+$usable_boards = 0;
 // BCH
 //for ($i2=0; $i2<=15; $i2++)
 // BCD
@@ -48,16 +49,18 @@ $usable = 0;
 for ($i2=0; $i2<=31; $i2++)
 {
     // RGB
+    $board_is_usable = true;
     for ($i=1; $i<=3; $i++)
     {
-        ++$usable;
+        ++$usable_single;
         $addr = str_pad(decbin($i), 2, '0', STR_PAD_LEFT) . str_pad(decbin($i2), 5, '0', STR_PAD_LEFT);
         echo $addr . ' (0x' . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ') i2=' . $i2 . ' i=' . $i;
         echo "\tR={$addr}0 (0x" . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ") W={$addr}1 (0x" . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ")";
         if (in_array($addr, $err))
         {
-            --$usable;
+            --$usable_single;
             echo ' ERRROR';
+            $board_is_usable = false;
         }
         if (in_array($addr, $warn))
         {
@@ -65,33 +68,40 @@ for ($i2=0; $i2<=31; $i2++)
         }
         echo "\n";
     }
+    if ($board_is_usable)
+    {
+        ++$usable_boards;
+    }
     echo "\n";
 }
-echo "Usable: {$usable}\n";
+echo "usable_single: {$usable_single}, usable_boards:{$usable_boards}\n";
 
 /**
  * Generate addresses using the following scheme: YYYY0XX
  * XX = (10=R, 01=G, 11=B)
  * YYYY = Binary Coded Decimal (using BCH will yield us a bunch more addresses
  */
-echo "\n\nScheme YYYY0XX\n";
-$usable = 0;
+echo "\n\nScheme YYYYYXX\n";
+$usable_single = 0;
+$usable_boards = 0;
 // BCH
 //for ($i2=0; $i2<=15; $i2++)
 // 5-bit DIP
 for ($i2=0; $i2<=31; $i2++)
 {
     // RGB
+    $board_is_usable = true;
     for ($i=1; $i<=3; $i++)
     {
-        ++$usable;
-        $addr = strrev(str_pad(decbin($i2), 4, '5', STR_PAD_LEFT)) . strrev(str_pad(decbin($i), 2, '0', STR_PAD_LEFT));
+        ++$usable_single;
+        $addr = strrev(str_pad(decbin($i2), 5, '0', STR_PAD_LEFT)) . strrev(str_pad(decbin($i), 2, '0', STR_PAD_LEFT));
         echo $addr . ' (0x' . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ') i2=' . $i2 . ' i=' . $i;
         echo "\tR={$addr}0 (0x" . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ") W={$addr}1 (0x" . str_pad(dechex(bindec($addr)), 2, '0', STR_PAD_LEFT) . ")";
         if (in_array($addr, $err))
         {
-            --$usable;
+            --$usable_single;
             echo ' ERRROR';
+            $board_is_usable = false;
         }
         if (in_array($addr, $warn))
         {
@@ -99,9 +109,13 @@ for ($i2=0; $i2<=31; $i2++)
         }
         echo "\n";
     }
+    if ($board_is_usable)
+    {
+        ++$usable_boards;
+    }
     echo "\n";
 }
-echo "Usable: {$usable}\n";
+echo "usable_single: {$usable_single}, usable_boards:{$usable_boards}\n";
 
 
 ?>
