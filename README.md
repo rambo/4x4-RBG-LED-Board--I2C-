@@ -8,6 +8,27 @@ By switching the addressing scheme (current one from a project that needed small
 
 4-layer board so you need proper Eagle license to view, sorry...
 
+## Pros and Cons
+
+Aka, "why would I want something so expensive then I can get 8x8 array for ~10USD". The *big* difference is that the 8x8 array is a matrix
+and you need a lot of i/o pins to actively drive it and even then you have to multiplex (and your refresh rate goes down with the number of leds you wish to keep lit a the same time), this board drives each led individually and uses high frequency PWM so the result is *much* better (also the leds are very high quality, unless you substitute), also: 2 I/O pins regardless of number of boards (in single bus).
+
+### Cons
+
+  - price
+  - resolution (only 4x4 "pixels" on 43x43mm)
+
+### Pros
+
+  - I2C takes 2 I/O Pins (and depending on how many boards you use you might fit other devices to the same bus)
+  - All active drivers in the board, you need to control them only when changing outputs
+  - Scales to rather large number of leds (2x14 boards = 8x56leds) on a single bus (you will need to feed power in from multiple points in these chains)
+
+# TODOs
+
+  - (maybe) switch to the other addressing scheme for more boards per bus
+  - add smd elcap to the board (there's plenty of space, this design is heavily based on another one where the leds got their power from elsewhere and that elsewhere has caps near the leds)
+
 # BOM
 
   - 3 x [PCA9635PW](http://fi.rsdelivers.com/product/nxp/pca9635pw/led-driver-23-55v-pca9635pw/0510897.aspx)
