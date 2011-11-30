@@ -8,6 +8,10 @@ By switching the addressing scheme (current one from a project that needed small
 
 4-layer board so you need proper Eagle license to view, sorry...
 
+This [Arduino library][1] should work for controlling (it's for a very similar board that has only the drivers)
+
+1: https://github.com/rambo/pca9635RGB
+
 ## Pros and Cons
 
 Aka, "why would I want something so expensive then I can get 8x8 array for ~10USD". The *big* difference is that the 8x8 array is a matrix
