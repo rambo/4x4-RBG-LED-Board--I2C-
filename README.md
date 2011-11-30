@@ -8,9 +8,9 @@ By switching the addressing scheme (current one from a project that needed small
 
 4-layer board so you need proper Eagle license to view, sorry...
 
-This [Arduino library][1] should work for controlling (it's for a very similar board that has only the drivers)
+This [Arduino library][pca9635RGB] should work for controlling (it's for a very similar board that has only the drivers)
 
-1: https://github.com/rambo/pca9635RGB
+[pca9635RGB]: https://github.com/rambo/pca9635RGB
 
 ## Pros and Cons
 
