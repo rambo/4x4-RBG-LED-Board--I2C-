@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Actually this board was never manufactured, it was just a design excercise. Get a [TiM](http://www.seeedstudio.com/depot/tim-p-1516.html) (though I think the WS2811 driver has ponly 400Hz PWM frequency which might be too low for some people/applications, the PCA9635PW drivers on this board have 200kHz PWM frequency...)
+
 # 4x4 RBG Led array with controllers (daisy-chainable)
 
 16 Osram MultiLEDs Controlled via I2C using 3 PCA9635PW drivers.
