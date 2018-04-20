@@ -1,3 +1,5 @@
+View this project on [CADLAB.io](https://cadlab.io/node/903). 
+
 # DEPRECATED
 
 Actually this board was never manufactured, it was just a design excercise. Get a [TiM](http://www.seeedstudio.com/depot/tim-p-1516.html) (though I think the WS2811 driver has ponly 400Hz PWM frequency which might be too low for some people/applications, the PCA9635PW drivers on this board have 200kHz PWM frequency...)
